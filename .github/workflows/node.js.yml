@@ -18,6 +18,10 @@ jobs:
         run: |
           npm install
           npm run build
+      - uses: actions/upload-artifact@main # public目录用于下面的test job 
+        with:
+          name: webpack artifacts
+          path: public/
   test:
     runs-on: ubuntu-latest
     strategy:
